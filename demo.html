@@ -1,0 +1,174 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery.js">
+<script type="text/javascript" src="multi_form.js">
+<link rel="stylesheet" type="text/css" href="form.css">
+</head>
+<body>
+<div id="wrapper">
+  <br>
+  <span class='baricon'>1</span>
+  <span id="bar1" class='progress_bar'></span>
+  <span class='baricon'>2</span>
+  <span id="bar2" class='progress_bar'></span>
+  <span class='baricon'>3</span>
+
+  <form method="post" action="">
+  <div id="account_details">
+    <p class='form_head'>Account Details</p>
+    <p>Email Address</p>
+    <input type="text" placeholder='Email Address'>
+    <p>Password</p>
+    <input type="text" placeholder='Password'>
+    <br>
+    <input type="button" value="Next" onclick="show_next('account_details','user_details','bar1');">
+  </div>
+
+  <div id="user_details">
+    <p class='form_head'>User Details</p>
+    <p>First Name</p>
+    <input type="text" placeholder='First Name'>
+    <p>Last Name</p>
+    <input type="text" placeholder='Last Name'>
+    <p>Gender</p>
+    <input type="text" placeholder='Gender'>
+    <br>
+    <input type="button" value="Previous" onclick="show_prev('account_details','bar1');">
+    <input type="button" value="Next" onclick="show_next('user_details','qualification','bar2');">
+  </div>
+		
+  <div id="qualification">
+    <p class='form_head'>Qualification</p>
+    <p>Qualification</p>
+    <input type="text" placeholder='Qualification'>
+    <p>Hobbies</p>
+    <input type="text" placeholder='Hobbies'>
+    <br>
+    <input type="button" value="Previous" onclick="show_prev('user_details','bar2');">
+    <input type="Submit" value="Submit">
+  </div>
+  </form>
+  
+</div>
+
+<script>
+
+
+function show_next(id,nextid,bar)
+{
+  var ele=document.getElementById(id).getElementsByTagName("input");
+  var error=0;
+  for(var i=0;i<ele.length;i++)
+  {
+    if(ele[i].type=="text" && ele[i].value=="")
+  {
+    error++;
+  }
+  }
+	
+  if(error==0)
+  {
+    document.getElementById("account_details").style.display="none";
+    document.getElementById("user_details").style.display="none";
+    document.getElementById("qualification").style.display="none";
+    $("#"+nextid).fadeIn();
+    document.getElementById(bar).style.backgroundColor="#38610B";
+  }
+  else
+  {
+    alert("Fill All The details");
+  }
+}
+
+function show_prev(previd,bar)
+{
+  document.getElementById("account_details").style.display="none";
+  document.getElementById("user_details").style.display="none";
+  document.getElementById("qualification").style.display="none";
+  $("#"+previd).fadeIn();
+  document.getElementById(bar).style.backgroundColor="#D8D8D8";
+}
+
+</script>
+
+
+<style type="text/css">
+
+body
+{
+  margin:0 auto;
+  padding:0;
+  text-align:center;
+  background-color:#D8D8D8;
+}
+#wrapper
+{
+  width:995px;
+  padding:0px;
+  margin:0px auto;
+  font-family:helvetica;
+  position:relative;
+}
+#wrapper .baricon
+{
+  display:inline-block;
+  border-radius:100%;
+  padding:12px;
+  background-color:#38610B;
+  color:white;
+}
+#wrapper .progress_bar
+{
+  width:200px;
+  height:5px;
+  border-radius:20px;
+  background-color:#D8D8D8;
+  display:inline-block;
+}
+#wrapper form div
+{
+  margin-left:340px;
+  padding:10px;
+  box-sizing:border-box;
+  width:300px;
+  margin-top:50px;
+  background-color:#585858;
+}
+#wrapper form div p
+{
+  color:#F2F2F2;
+  margin:0px;
+  margin-top:10px;
+  font-weight:bold;
+}
+#wrapper form div .form_head
+{
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:30px;
+}
+#wrapper form div input[type="text"]
+{
+  width:200px;
+  height:40px;
+  padding:5px;
+  border-radius:5px;
+  border:none;
+  margin-top:10px;
+}
+#wrapper form div input[type="button"],input[type="submit"]
+{
+  width:80px;
+  height:40px;
+  border-radius:5px;
+  border:2px solid white;
+  background:none;
+  color:white;
+  margin:5px;
+  margin-top:10px;
+}
+#user_details,#qualification
+{
+  display:none;
+}
+</style>
