@@ -1,0 +1,38 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.woocommerce.mdsupporttab input{
+    /* margin: 11px; */
+    margin-bottom: 11px;
+}
+.woocommerce.mdsupporttab select {
+    margin-bottom: 11px;
+    width: 100%;
+}
+.woocommerce.mdsupporttab textarea {
+    margin-bottom: 11px;
+}
+
+.woocommerce.mdsupporttab input.submit {
+    width: 104px;
+    height: 34px;
+    box-shadow: none;
+    color: #fff;
+    background-color: black;
+    font-size: 0.875rem;
+    font-weight: 800;
+    border: 1px solid;
+    transition: background 0.2s;
+
+}
+
+div#mdsupport-status-pagination ul li {
+    cursor: pointer;
+}
+.mdsupport-status-pagination ul {margin: 0; padding: 0;border: none;}
+.mdsupport-status-pagination ul li {display: inline; margin: 3px; padding: 4px 8px; background: #FFF; color: black; }
+.mdsupport-status-pagination ul li.active:hover {cursor: pointer; background: #1E8CBE; color: white; }
+.mdsupport-status-pagination ul li.inactive {background: #7E7E7E;}
+.mdsupport-status-pagination ul li.selected {background: #1E8CBE; color: white;}
